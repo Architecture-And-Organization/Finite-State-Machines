@@ -1,4 +1,4 @@
-# Finite-State_Machines
+# Finite-State-Machines
 
 Export the xfig drawing as Combined PDF/LaTeX 
 
