@@ -1,0 +1,190 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 7874 4921
+encoding utf-8
+Sheet 1 1
+Title "Moore Message Recognizer"
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L jb-symbol:decoder U4
+U 1 1 63225F5F
+P 2450 1750
+F 0 "U4" H 2475 2065 50  0000 C CNN
+F 1 "decoder" H 2475 1974 50  0000 C CNN
+F 2 "" H 2450 2400 50  0001 C CNN
+F 3 "" H 2450 2400 50  0001 C CNN
+	1    2450 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L JWlib:D_LATCH_FE U2
+U 1 1 63226855
+P 5200 1700
+F 0 "U2" H 5200 1975 50  0000 C CNN
+F 1 "D_LATCH_FE" H 5200 1976 50  0001 C CNN
+F 2 "" H 5200 1700 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 5200 1700 50  0001 C CNN
+	1    5200 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L JWlib:D_LATCH_FE U6
+U 1 1 63227910
+P 5200 2400
+F 0 "U6" H 5200 2675 50  0000 C CNN
+F 1 "D_LATCH_FE" H 5200 2676 50  0001 C CNN
+F 2 "" H 5200 2400 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 5200 2400 50  0001 C CNN
+	1    5200 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L JWlib:5-in_OR U5
+U 1 1 6322ECE9
+P 4050 2300
+F 0 "U5" H 4050 2533 50  0000 C CNN
+F 1 "5-in_OR" H 4050 2534 50  0001 C CNN
+F 2 "" H 4050 2300 50  0001 C CNN
+F 3 "" H 4050 2300 50  0001 C CNN
+	1    4050 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS32 U1
+U 1 1 63230462
+P 4050 1600
+F 0 "U1" H 4050 1833 50  0000 C CNN
+F 1 "74LS32" H 4050 1834 50  0001 C CNN
+F 2 "" H 4050 1600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 4050 1600 50  0001 C CNN
+	1    4050 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 1950 3350 1950
+Wire Wire Line
+	3350 1950 3350 1500
+Wire Wire Line
+	3350 1500 3750 1500
+Wire Wire Line
+	3750 1700 3550 1700
+Wire Wire Line
+	3550 1700 3550 2150
+Wire Wire Line
+	3550 2150 3200 2150
+Wire Wire Line
+	2800 1650 3650 1650
+Wire Wire Line
+	3650 1650 3650 2200
+Wire Wire Line
+	3650 2200 3750 2200
+Wire Wire Line
+	3750 2250 3450 2250
+Wire Wire Line
+	3450 2250 3450 1850
+Wire Wire Line
+	3450 1850 2800 1850
+Wire Wire Line
+	3300 2300 3300 2050
+Wire Wire Line
+	3300 2050 2800 2050
+Wire Wire Line
+	3750 2350 3200 2350
+Wire Wire Line
+	3200 2350 3200 2150
+Connection ~ 3200 2150
+Wire Wire Line
+	3200 2150 2800 2150
+Wire Wire Line
+	3300 2300 3750 2300
+Wire Wire Line
+	3750 2400 3050 2400
+Wire Wire Line
+	3050 2400 3050 2250
+Wire Wire Line
+	3050 2250 2800 2250
+NoConn ~ 2800 2350
+NoConn ~ 2800 1750
+Wire Wire Line
+	4350 1600 4900 1600
+Wire Wire Line
+	4350 2300 4900 2300
+Text Label 4450 1600 0    50   ~ 0
+N1
+Text Label 4450 2300 0    50   ~ 0
+N0
+Wire Wire Line
+	4900 1700 4750 1700
+Wire Wire Line
+	4750 1700 4750 2400
+Wire Wire Line
+	4750 2850 1400 2850
+Wire Wire Line
+	4900 2400 4750 2400
+Connection ~ 4750 2400
+Wire Wire Line
+	4750 2400 4750 2850
+Wire Wire Line
+	5500 1600 5750 1600
+Wire Wire Line
+	5750 1600 5750 1150
+Wire Wire Line
+	5750 1150 1700 1150
+Wire Wire Line
+	1700 1150 1700 1850
+Wire Wire Line
+	1700 1850 2150 1850
+Text Label 5600 1600 0    50   ~ 0
+S1
+Wire Wire Line
+	5500 2300 5850 2300
+Wire Wire Line
+	5850 2300 5850 1800
+Wire Wire Line
+	5850 1050 1800 1050
+Wire Wire Line
+	1800 1050 1800 1750
+Wire Wire Line
+	1800 1750 2150 1750
+Text Label 5600 2300 0    50   ~ 0
+S0
+NoConn ~ 5500 2500
+NoConn ~ 5500 1800
+Wire Wire Line
+	2150 1650 1350 1650
+Text GLabel 1350 1650 0    50   Input ~ 0
+D
+Text GLabel 1400 2850 0    50   Input ~ 0
+CLK
+$Comp
+L 74xx:74LS09 U3
+U 1 1 63256F7F
+P 6350 1700
+F 0 "U3" H 6350 1933 50  0000 C CNN
+F 1 "74LS09" H 6350 1934 50  0001 C CNN
+F 2 "" H 6350 1700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS09" H 6350 1700 50  0001 C CNN
+	1    6350 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 1600 6050 1600
+Connection ~ 5750 1600
+Wire Wire Line
+	6050 1800 5850 1800
+Connection ~ 5850 1800
+Wire Wire Line
+	5850 1800 5850 1050
+Wire Wire Line
+	6650 1700 6900 1700
+Text GLabel 6900 1700 2    50   Output ~ 0
+Q
+$EndSCHEMATC
