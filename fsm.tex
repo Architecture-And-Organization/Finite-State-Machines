@@ -280,9 +280,9 @@ Q &= S_1 \land S_0
 \centering
 \begin{tikztimingtable} [yscale=1.5,xscale=3,timing/slope=0.05,timing/coldist=1pt]
  state	& { DD{}6{DD{}}DD } \\ %SSSSSSSSSSSSSSS }\\
- $clk$	& { LHLHLHLHLHLHLHLH }\\
+ $clk$	& { LHLHLHLHN(c8)LHLHLHLH }\\
  $D$	& { LLLLLHHHHLLLLLLL }\\
- $Q$	& { LLLLLLLLHHLLLLLL }\\
+ $Q$	& { LLLLLLLLN(q8)HHLLLLLL }\\
 \extracode
  \makeatletter
  \begin{pgfonlayer}{background}
@@ -302,6 +302,9 @@ Q &= S_1 \land S_0
 	\draw[blue] (11,.5) node{01};
 	\draw[blue] (13,.5) node{01};
 	\draw[blue] (15,.5) node{01};
+
+	\draw[blue,{Circle[open]}->](c8.MID)to[out=0,in=180](q8.MID);
+
 \end{tikztimingtable}
 
 \caption{Message 0 1 1 Recognizer Moore FSM Waveform}
@@ -349,9 +352,10 @@ Q &= S_1 \land S_0
 \centering
 \begin{tikztimingtable} [yscale=1.5,xscale=2,timing/slope=0.05,timing/coldist=1pt]
  state	& { DD{}13{DD{}}DD } \\%15{SS} }\\
- $clk$	& { 15{LH} }\\
+% $clk$	& { 15{LH} }\\
+ $clk$	& { LHLHLHLHLHLHLHLHN(c8)LHLHLHN(c22)LHLHLHLH }\\
  $D$	& { LLLHHLLLLHHLLHHHHLLHHHHHHHHLLL }\\
- $Q$	& { LLLLLLLLLLLLLLLLHHLLLLHHLLLLLL }\\
+ $Q$	& { LLLLLLLLLLLLLLLLN(q8)HHLLLLN(q22)HHLLLLLL }\\
 \extracode
  \makeatletter
  \begin{pgfonlayer}{background}
@@ -378,6 +382,10 @@ Q &= S_1 \land S_0
 	\draw[blue] (25,.5) node{00};
 	\draw[blue] (27,.5) node{00};
 	\draw[blue] (29,.5) node{01};
+
+	\draw[blue,{Circle[open]}->](c8.MID)to[out=0,in=180](q8.MID);
+	\draw[blue,{Circle[open]}->](c22.MID)to[out=0,in=180](q22.MID);
+
 \end{tikztimingtable}
 
 \caption{Message 0 1 1 Recognizer Moore FSM All Possible Transitions}
@@ -390,9 +398,10 @@ Q &= S_1 \land S_0
 \centering
 \begin{tikztimingtable} [yscale=1.5,xscale=2,timing/slope=0.05,timing/coldist=1pt]
  state	& { DD{}13{DD{}}DD } \\%15{SS} }\\
- $clk$	& { 15{LH} }\\
+% $clk$	& { 15{LH} }\\
+ $clk$	& { LHLHLHLHLHLHLHLHN(c8)LHLHLHN(c22)LHLHLHLH }\\
  $D$	& { LLLHHL.25L.25H.25L.25HLLHHLLH.25H.25L.25H.25LHHLLHHHHHHHHLLL }\\
- $Q$	& { LLLLLLLLLLLLLLLLHHLLLLHHLLLLLL }\\
+ $Q$	& { LLLLLLLLLLLLLLLLN(q8)HHLLLLN(q22)HHLLLLLL }\\
 \extracode
  \makeatletter
  \begin{pgfonlayer}{background}
@@ -419,6 +428,9 @@ Q &= S_1 \land S_0
 	\draw[blue] (25,.5) node{00};
 	\draw[blue] (27,.5) node{00};
 	\draw[blue] (29,.5) node{01};
+
+	\draw[blue,{Circle[open]}->](c8.MID)to[out=0,in=180](q8.MID);
+	\draw[blue,{Circle[open]}->](c22.MID)to[out=0,in=180](q22.MID);
 \end{tikztimingtable}
 
 \caption{Message 0 1 1 Recognizer Moore FSM With Glitches}
@@ -535,10 +547,10 @@ Q &= S_1 \land \overline{S_0} \land D
 \begin{figure}[ht]
 \centering
 \begin{tikztimingtable} [yscale=1.5,xscale=2,timing/slope=0.05,timing/coldist=1pt]
- state	& { DD{}13{DD{}}DD } \\ %15{SS} }\\
- $clk$	& { 15{LH} }\\
- $D$	& { LLLHHLLLLHHLLHHHHLLHHHHHHHHLLL }\\
- $Q$	& { LLLLHLLLLLHLLLHHLLLLHHLLLLLLLL }\\
+ state	& { DD{}13{DD{}}DD } \\
+ $clk$	& { LHLHN(c4)LN(c5)HLHLHN(c10)LN(c11)HLHN(c14)LHN(c16)LHLHN(c20)LHN(c22)LHLHLHLH }\\
+ $D$	& { LLLHN(d4)HN(d5)LLLLHN(d10)HN(d11)LLHN(d14)HHN(d16)HLLHN(d20)HHN(d22)HHHHHLLL }\\
+ $Q$	& { LLLLN(q4)HN(q5)LLLLLN(q10)HN(q11)LLLN(q14)HHN(q16)LLLLN(q20)HHN(q22)LLLLLLLL }\\
 \extracode
  \makeatletter
  \begin{pgfonlayer}{background}
@@ -565,6 +577,15 @@ Q &= S_1 \land \overline{S_0} \land D
 	\draw[blue] (25,.5) node{00};
 	\draw[blue] (27,.5) node{00};
 	\draw[blue] (29,.5) node{01};
+
+	\draw[blue,{Circle[open]}->](d4.HIGH)to[out=0,in=180](q4.MID);
+	\draw[blue,{Circle[open]}->](d5.MID)to[out=0,in=180](q5.MID);
+	\draw[blue,{Circle[open]}->](d10.HIGH)to[out=0,in=180](q10.MID);
+	\draw[blue,{Circle[open]}->](d11.MID)to[out=0,in=180](q11.MID);
+	\draw[blue,{Circle[open]}->](d14.HIGH)to[out=0,in=180](q14.MID);
+	\draw[blue,{Circle[open]}->](c16.MID)to[out=0,in=180](q16.MID);
+	\draw[blue,{Circle[open]}->](d20.HIGH)to[out=0,in=180](q20.MID);
+	\draw[blue,{Circle[open]}->](c22.MID)to[out=0,in=180](q22.MID);
 \end{tikztimingtable}
 
 \caption{Message 0 1 1 Recognizer Mealy FSM All Possible Transitions}
@@ -582,9 +603,9 @@ Fig~\ref{wav:mealy.message.011.glitch} in ways that the Moore machine will not.
 \centering
 \begin{tikztimingtable} [yscale=1.5,xscale=2,timing/slope=0.05,timing/coldist=1pt]
  state	& { DD{}13{DD{}}DD } \\
- $clk$	& { 15{LH} }\\
- $D$	& { LLLHHL.25L.25H.25L.25HLLHHLLH.25H.25L.25H.25LHHLLHHHHHHHHLLL }\\
- $Q$	& { LLLLHLLLLLHLLL.25H.25L.25H.25LHLLLLHHLLLLLLLL }\\
+ $clk$	& { LHLHN(c4)LN(c5)HLHLHN(c10)LN(c11)HLHN(c14)LHN(c16)LHLHN(c20)LHN(c22)LHLHLHLH }\\
+ $D$	& { LLLHHL.25L.25H.25L.25HLLHHLLHN(d14).25H.01LN(d14a).24L.25H.25LHHLLHHHHHHHHLLL }\\
+ $Q$	& { LLLLHLLLLLHLLLN(q14).25HN(q14a).25L.25H.25LHLLLLHHLLLLLLLL }\\
 \extracode
  \makeatletter
  \begin{pgfonlayer}{background}
@@ -611,6 +632,9 @@ Fig~\ref{wav:mealy.message.011.glitch} in ways that the Moore machine will not.
 	\draw[blue] (25,.5) node{00};
 	\draw[blue] (27,.5) node{00};
 	\draw[blue] (29,.5) node{01};
+
+	\draw[blue,{Circle[open]}->](d14.HIGH)to[out=0,in=180](q14.MID);
+	\draw[blue,{Circle[open]}->](d14a.LOW)to[out=0,in=180](q14a.MID);
 \end{tikztimingtable}
 
 \caption{Message 0 1 1 Recognizer Mealy FSM With Glitches}
