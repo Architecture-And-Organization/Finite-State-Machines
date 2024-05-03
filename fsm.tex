@@ -381,10 +381,51 @@ Q &= S_1 \land S_0
 \end{tikztimingtable}
 
 \caption{Message 0 1 1 Recognizer Moore FSM All Possible Transitions}
-\label{wav:moore.message.011}
+\label{wav:moore.message.011.all}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[ht]
+\centering
+\begin{tikztimingtable} [yscale=1.5,xscale=2,timing/slope=0.05,timing/coldist=1pt]
+ state	& { DD{}13{DD{}}DD } \\%15{SS} }\\
+ $clk$	& { 15{LH} }\\
+ $D$	& { LLLHHL.25L.25H.25L.25HLLHHLLH.25H.25L.25H.25LHHLLHHHHHHHHLLL }\\
+ $Q$	& { LLLLLLLLLLLLLLLLHHLLLLHHLLLLLL }\\
+\extracode
+ \makeatletter
+ \begin{pgfonlayer}{background}
+  \begin{scope}[gray,semitransparent,semithick]
+        \vertlines{0,2,...,\twidth}
+  \end{scope}
+        \foreach \n [count=\i from 0] in {0,1,...,\twidth}
+            \draw (\n,-\nrows*2+1.5) -- +(0,-.2)
+                node [below,inner sep=2pt] {\scalebox{.75}{\tiny\i}};
+%    \draw [fill=c_lightgray,c_lightgray] (0,-4) rectangle (2,-3);
+ \end{pgfonlayer}
+	\draw[blue] (1,.5) node{00};
+	\draw[blue] (3,.5) node{01};
+	\draw[blue] (5,.5) node{10};
+	\draw[blue] (7,.5) node{01};
+	\draw[blue] (9,.5) node{01};
+	\draw[blue] (11,.5) node{10};
+	\draw[blue] (13,.5) node{01};
+	\draw[blue] (15,.5) node{10};
+	\draw[blue] (17,.5) node{11};
+	\draw[blue] (19,.5) node{01};
+	\draw[blue] (21,.5) node{10};
+	\draw[blue] (23,.5) node{11};
+	\draw[blue] (25,.5) node{00};
+	\draw[blue] (27,.5) node{00};
+	\draw[blue] (29,.5) node{01};
+\end{tikztimingtable}
+
+\caption{Message 0 1 1 Recognizer Moore FSM With Glitches}
+\label{wav:moore.message.011.glitch}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[ht]
 \centering
